@@ -17,15 +17,29 @@ spec:
           envFrom:
             - configMapRef:
                 name: "app-config"
-            
+            - secretRef:
+                # managed manually because this is from a sealed secret
+                name: "app-secret"
           ports:
             - name: http
-              containerPort: 80
+              containerPort: 8083
               protocol: TCP
           volumeMounts:
             - name: data
-              mountPath: /data
+              mountPath: /config
+            - name: calibre-library
+              mountPath: /calibre-library
+            - name: calibre-import
+              mountPath: /cwa-book-ingest
       volumes:
         - name: data
           persistentVolumeClaim:
             claimName: data-pvc
+        - name: calibre-library
+          hostPath:
+            path: /mnt/calibre
+            type: Directory
+        - name: calibre-import
+          hostPath:
+            path: /media/calibre-import
+            type: Directory
