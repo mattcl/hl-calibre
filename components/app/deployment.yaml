@@ -19,7 +19,7 @@ spec:
                 name: "app-config"
             - secretRef:
                 # managed manually because this is from a sealed secret
-                name: "app-secret"
+                name: "calibre-app-secret"
           ports:
             - name: http
               containerPort: 8083
