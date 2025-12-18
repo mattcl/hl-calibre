@@ -15,4 +15,6 @@ configMapGenerator:
   - name: app-config
     envs:
       - "app-config.env"
-
+  - name: app-secret-sentinel
+    files:
+      - app-sealed-secret.yaml
