@@ -9,7 +9,7 @@ namespace: "calibre"
 namePrefix: "calibre-"
 images:
   - name: "crocodilestick/calibre-web-automated"
-    newTag: "V3.1.4"
+    newTag: "V4.0.6"
 
 configMapGenerator:
   - name: app-config
